@@ -12,7 +12,9 @@ impl Flight {
         }
     }
     fn from_flight(sample_flight: &Flight, origin: String, destination: String) -> Flight {
-        Flight::new(origin, destination, sample_flight.price, sample_flight.passengers)
+        Flight {
+            origin, destination, ..*sample_flight
+        }
     }
     fn change_destination(&mut self, new_destination: String) {
         self.destination = new_destination;
